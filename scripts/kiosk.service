@@ -1,0 +1,16 @@
+[Unit]
+Description=Chromium Kiosk - Sessão Gráfica do TV-SENAI
+After=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=/home/tv-senai/scripts/start_monitor.sh
+# Reinicia apenas em falhas (não em todas as saídas) para evitar loop de opens
+Restart=always
+RestartSec=5
+# Limita quantas vezes reinicia em curto período para evitar flood
+StartLimitBurst=3
+StartLimitIntervalSec=30
+
+[Install]
+WantedBy=default.target
