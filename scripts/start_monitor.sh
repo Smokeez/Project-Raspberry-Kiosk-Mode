@@ -2,7 +2,7 @@
 # start_monitor.sh — Chromium Kiosk (single instance, open as app)
 
 USER_HOME="/home/tv-senai"
-URL="https://172.16.52.16/tv"
+URL="https://URL_DO_SEU_PROJETO"
 export DISPLAY=:0
 export XAUTHORITY="$USER_HOME/.Xauthority"
 
