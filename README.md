@@ -57,6 +57,8 @@ sudo apt install xdotool -y
 ```
 Ferramente útil para automações gráficas (opcional)
 
+----------------------------------------------------------------------------------------------------------------------------------
+
 📁 Criação da Estrutura de Pastas
 
 ```python
@@ -66,6 +68,8 @@ mkdir -p ~/services
 ```
 criar as pastas que armazenam os scripts e serviços do projeto
 
+----------------------------------------------------------------------------------------------------------------------------------
+
 🚀 Movendo e Preparando os Arquivos
 
 ```python
@@ -74,6 +78,8 @@ cp services/kiosk.service ~/.config/systemd/user/
 chmod +x ~/scripts/start_monitor.sh
 ```
 copia os arquivos para os locais corretos e dá permissão ao script principal
+
+----------------------------------------------------------------------------------------------------------------------------------
 
 🔄 Ativando o Serviço
 
@@ -92,6 +98,8 @@ sytemctl --user start kiosk.service
 ```
 inicia o serviço manualmente (útil para testar)
 
+----------------------------------------------------------------------------------------------------------------------------------
+
 🧩 Monitoramento e Logs
 
 ```python
@@ -103,3 +111,22 @@ mostra o status atual do serviço (ativo, inativo ou com erro)
 journalctl --user -u kiosk.service -f
 ```
 exibe os logs em tempo real - otimo para debugs
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+
+🎨🖥️ Personalização da Tela de Boot (Logo)
+
+O Raspberry Pi utiliza o Plymouth para exibir uma imagem durante o processo de inicialização.
+Essa imagem fica localizada em:
+```python
+/usr/share/plymouth/themes/pix/splash.png
+```
+Para personalizar essa tela, o projeto substitui a imagem padrão do Raspberry PI por uma imagem personalizada (Ex:logo do SENAI)
+
+o funcionamento é simples:
+1- Fazemos um backup da imagem original
+2- Copiamos a nova logo para o diretório do Plymouth
+3- Mantemos o mesmo nome do arquivo (splash.png)
+
+Dessa forma, ao ligar o Raspberry, o sistema exibe automaticamente a nova logo durante o boot.

@@ -1,0 +1,29 @@
+sudo nano /usr/share/plymouth/themes/senai/senai.plymouth
+
+[Plymouth Theme]
+Name=Senai Splash
+Description=Splash personalizado do Senai
+ModuleName=script
+
+[script]
+ImageDir=/usr/share/plymouth/themes/senai
+ScriptFile=/usr/share/plymouth/themes/senai/senai.script
+
+
+
+sudo nano /usr/share/plymouth/themes/senai/senai.script
+
+wallpaper_image = Image("splash.png");
+wallpaper_sprite = Sprite(wallpaper_image);
+wallpaper_sprite.SetZ(-100);
+wallpaper_sprite.SetPosition(0, 0, 1.0);
+
+
+wallpaper_image = Image("splash.png");
+wallpaper_sprite = Sprite(wallpaper_image);
+wallpaper_sprite.SetZ(-100);
+
+# Centraliza a imagem na tela
+x = (Window.GetWidth()  - wallpaper_image.GetWidth())  / 2;
+y = (Window.GetHeight() - wallpaper_image.GetHeight()) / 2;
+wallpaper_sprite.SetPosition(x, y, 1.0);
