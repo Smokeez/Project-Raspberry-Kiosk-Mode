@@ -11,14 +11,21 @@ Assim que o Raspberry Pi é ligado, ele executa uma sequência totalmente automa
 2️⃣ Ambiente gráfico → o desktop é carregado.
 
 3️⃣ Serviço systemd (modo usuário) → inicia o script responsável por abrir o navegador.
+
 4️⃣ Chromium Browser é iniciado com as seguintes configurações:
 
 🧩 Modo Kiosk: tela cheia, sem bordas, abas ou menus.
+
 🌐 URL definida no script principal.
+
 🔒 Ignora erros de certificado HTTPS locais (para URLs internas).
+
 ⚙️ Sem pop-ups, sincronização ou barras de notificação.
+
 5️⃣ Navegador permanece ativo, funcionando como um painel digital.
+
 6️⃣ Watchdog automático (via systemd): caso o Chromium seja fechado, travado ou encerrado, o sistema o reinicia imediatamente.
+
 📊 O resultado é um sistema de exibição totalmente automático, resiliente e sem necessidade de intervenção humana, ideal para TVs corporativas, dashboards de monitoramento e painéis informativos.
 
 ----------------------------------------------------------------------------------------------------------------------------------
@@ -28,6 +35,7 @@ Assim que o Raspberry Pi é ligado, ele executa uma sequência totalmente automa
 Este projeto foi criado para resolver a necessidade de manter TVs exibindo informações 24 horas por dia, de forma automática e confiável.
 
 🎬 Objetivo principal:
+
 ⚡ Ligar a energia → a TV inicia → o Raspberry abre o site sozinho.
 🧱 Nenhuma interação humana é necessária — apenas plug & play.
 
