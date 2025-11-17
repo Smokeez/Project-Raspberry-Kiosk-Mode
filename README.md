@@ -7,7 +7,9 @@ O projeto utiliza um Raspberry Pi 5 como base para transformar qualquer TV ou mo
 Assim que o Raspberry Pi é ligado, ele executa uma sequência totalmente automatizada:
 
 1️⃣ Autologin → o sistema entra automaticamente em um usuário dedicado (tv-senai).
+
 2️⃣ Ambiente gráfico → o desktop é carregado.
+
 3️⃣ Serviço systemd (modo usuário) → inicia o script responsável por abrir o navegador.
 4️⃣ Chromium Browser é iniciado com as seguintes configurações:
 
