@@ -53,7 +53,7 @@ sudo apt update && sudo apt upgrade -y
 Atualiza todos os pacotes e dependências do sistema
 
 ```bash
-sudo apt install chromium-browser -y
+sudo apt install chromium -y
 ```
 instala o navegador Chromium, usado para exibir o conteúdo na tela
 
