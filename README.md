@@ -85,8 +85,8 @@ Agora dentro da pasta script dar o seguinte comando e coloque o script principal
 
 ```python
 sudo nano start_monitor.sh
-[Caminho para o start_monitor.sh](./scripts/start_monitor.sh)
 ```
+[Caminho para o start_monitor.sh](./scripts/start_monitor.sh)
 ----------------------------------------------------------------------------------------------------------------------------------
 Caminho para armazenar o script do kiosk.service, responsavel por iniciar o automaticamente o script start_monitor
 ```python
