@@ -43,7 +43,7 @@ Este projeto foi criado para resolver a necessidade de manter TVs exibindo infor
 
 ⚙️ COMANDOS UTILIZADOS
 
-abaixo estão os principais comandos usados para configurar o Raspberry PI 5
+Abaixo estão os principais comandos usados para configurar o Raspberry PI 5
 
 🔧 Instalação e Preparação do Sistema
 
@@ -55,7 +55,7 @@ Atualiza todos os pacotes e dependências do sistema
 ```bash
 sudo apt install chromium -y
 ```
-instala o navegador Chromium, usado para exibir o conteúdo na tela
+Instala o navegador Chromium, usado para exibir o conteúdo na tela
 
 ```bash
 sudo apt install unclutter -y
@@ -108,17 +108,17 @@ sudo nano kiosk.service
 ```bash
 systemctl --user daemon-reload
 ```
-recarrega as definições do systemd (modo usuário)
+Recarrega as definições do systemd (modo usuário)
 
 ```bash
 systemctl --user start kiosk.service
 ```
-ativa o serviço para iniciar automaticamente com o usuário logado
+Ativa o serviço para iniciar automaticamente com o usuário logado
 
 ```bash
 sytemctl --user start kiosk.service
 ```
-inicia o serviço manualmente (útil para testar)
+Inicia o serviço manualmente (útil para testar)
 
 ----------------------------------------------------------------------------------------------------------------------------------
 
@@ -127,12 +127,12 @@ inicia o serviço manualmente (útil para testar)
 ```bash
 systemctl --user status kiosk.service
 ```
-mostra o status atual do serviço (ativo, inativo ou com erro)
+Mostra o status atual do serviço (ativo, inativo ou com erro)
 
 ```bash
 journalctl --user -u kiosk.service -f
 ```
-exibe os logs em tempo real - otimo para debugs
+Exibe os logs em tempo real - otimo para debugs
 
 ----------------------------------------------------------------------------------------------------------------------------------
 
@@ -151,10 +151,12 @@ sudo apt install plymouth-x11 -y
 ----------------------------------------------------------------------------------------------------------------------------------
 Desativar a tela arco-íris para colocar a logo desejada
 
+Edite o arquivo:
+
 ```bash
 sudo nano /boot/firmware/config.txt
 ```
-dentro desse arquivo txt procurar(ou adicione se não existir)
+Dentro desse arquivo txt procurar(ou adicione se não existir)
 
 ```bash
 [all]
@@ -162,15 +164,19 @@ disable_splash=1
 ```
 E para remover a logo da raspberry
 
+Edite:
+
 ```bash
 sudo nano /boot/firmware/cmdline.txt
 ```
-e na mesma linha colocar 
+E na mesma linha colocar 
 
 ´´´bash
 logo.nologo
 ```
----------------------------------------------------------------------------------------------------------------------------------------------------Agora vamos criar o que vai controlar tudo que aparece na tela do boot
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+Arquivo do script do tema
 
 ```bash
 sudo nano /usr/share/plymouth/themes/senai/senai.script
@@ -187,11 +193,13 @@ nano /usr/share/plymouth/themes/senai/senai.plymouth
 <small>[Caminho para o senai.plymounth](./scripts/senai.plymouth)</small>
 
 
-Para personalizar essa tela, o projeto substitui a imagem padrão do Raspberry PI por uma imagem personalizada (Ex:logo do SENAI)
+🖼️ Como funciona a troca de logo?
 
-o funcionamento é simples:
-1- Fazemos um backup da imagem original
-2- Copiamos a nova logo para o diretório do Plymouth
-3- Mantemos o mesmo nome do arquivo (splash.png)
+O Plymouth usa uma imagem chamada splash.png como tela de boot.
+Para trocar a logo basta:
 
-Dessa forma, ao ligar o Raspberry, o sistema exibe automaticamente a nova logo durante o boot.
+1️⃣ Fazer backup da original
+2️⃣ Copiar a nova logo
+3️⃣ Manter o nome splash.png na pasta do tema
+
+Assim, ao ligar o Raspberry, sua logo personalizada (ex.: SENAI) aparece automaticamente.
