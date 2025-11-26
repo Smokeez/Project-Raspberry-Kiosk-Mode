@@ -85,7 +85,7 @@ Agora dentro da pasta script dar o seguinte comando e coloque o script principal
 
 ```python
 sudo nano start_monitor.sh
-[Caminho para o start_monitor.sh(./scripts/start_monitor.sh)]
+[Caminho para o start_monitor.sh](./scripts/start_monitor.sh)
 ```
 ----------------------------------------------------------------------------------------------------------------------------------
 Caminho para armazenar o script do kiosk.service, responsavel por iniciar o automaticamente o script start_monitor
@@ -95,7 +95,7 @@ sudo -u tv-senai mkdir -p /home/tv-senai/.config/systemd/user
 Próximo passo dentro do user criado acima
 ```python
 sudo nano kiosk.service
-[Caminho para o kiosk.service(./scripts/kiosk.service)]
+[Caminho para o kiosk.](./scripts/kiosk.service)
 ```
 ----------------------------------------------------------------------------------------------------------------------------------
 
@@ -169,7 +169,7 @@ logo.nologo
 
 ```python
 sudo nano /usr/share/plymouth/themes/senai/senai.script
-[Caminho para o senai.script(./scripts/senai.script)]
+[Caminho para o senai.script](./scripts/senai.script)
 ```
 ---------------------------------------------------------------------------------------------------------------------------------------------------
 Configuração principal do tema do Plymouth. Ele diz ao sistema como carregar o tema, qual módulo usar e onde esta o script principal
@@ -177,7 +177,7 @@ Configuração principal do tema do Plymouth. Ele diz ao sistema como carregar o
 
 ```python
 nano /usr/share/plymouth/themes/senai/senai.plymouth
-[Caminho para o senai.plymounth(./scripts/senai.plymouth)]
+[Caminho para o senai.plymounth](./scripts/senai.plymouth)
 ```
 
 Para personalizar essa tela, o projeto substitui a imagem padrão do Raspberry PI por uma imagem personalizada (Ex:logo do SENAI)
