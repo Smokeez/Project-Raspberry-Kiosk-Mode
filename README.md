@@ -47,22 +47,22 @@ abaixo estão os principais comandos usados para configurar o Raspberry PI 5
 
 🔧 Instalação e Preparação do Sistema
 
-```Python
+```bash
 sudo apt update && sudo apt upgrade -y
 ```
 Atualiza todos os pacotes e dependências do sistema
 
-```python
+```bash
 sudo apt install chromium-browser -y
 ```
 instala o navegador Chromium, usado para exibir o conteúdo na tela
 
-```python
+```bash
 sudo apt install unclutter -y
 ```
 Remove automaticamente o cursor do mouse após alguns segundos(deixa a tela limpa)
 
-```python
+```bash
 sudo apt install xdotool -y
 ```
 Ferramente útil para automações gráficas (opcional)
@@ -73,28 +73,30 @@ Ferramente útil para automações gráficas (opcional)
 
 Caminho para armazenar o script do start_monitor.sh
 
-```python
+```bash
 cd /home/tv-senai/
 ```
 Criar a pasta script dentro desse caminho
 
-```python
+```bash
 mkdir scripts
 ```
 Agora dentro da pasta script dar o seguinte comando e coloque o script principal que abre o Chromium em modo kiosk
 
-```python
+```bash
 sudo nano start_monitor.sh
 ```
 <small>[Caminho para o start_monitor.sh](./scripts/start_monitor.sh)</small>
 
 ----------------------------------------------------------------------------------------------------------------------------------
 Caminho para armazenar o script do kiosk.service, responsavel por iniciar o automaticamente o script start_monitor
-```python
+
+```bash
 sudo -u tv-senai mkdir -p /home/tv-senai/.config/systemd/user
 ```
 Próximo passo dentro do user criado acima
-```python
+
+```bash
 sudo nano kiosk.service
 ```
 <small>[Caminho para o kiosk.](./scripts/kiosk.service)</small>
@@ -103,17 +105,17 @@ sudo nano kiosk.service
 
 🔄 Ativando o Serviço
 
-```python
+```bash
 systemctl --user daemon-reload
 ```
 recarrega as definições do systemd (modo usuário)
 
-```python
+```bash
 systemctl --user start kiosk.service
 ```
 ativa o serviço para iniciar automaticamente com o usuário logado
 
-```python
+```bash
 sytemctl --user start kiosk.service
 ```
 inicia o serviço manualmente (útil para testar)
@@ -122,12 +124,12 @@ inicia o serviço manualmente (útil para testar)
 
 🧩 Monitoramento e Logs
 
-```python
+```bash
 systemctl --user status kiosk.service
 ```
 mostra o status atual do serviço (ativo, inativo ou com erro)
 
-```python
+```bash
 journalctl --user -u kiosk.service -f
 ```
 exibe os logs em tempo real - otimo para debugs
@@ -141,7 +143,7 @@ O Raspberry Pi utiliza o Plymouth para exibir uma imagem durante o processo de i
 
 Principais comandos para configurar o Plymouth
 
-```python
+```bash
 sudo apt install plymouth -y
 sudo apt install plymouth-themes -y
 sudo apt install plymouth-x11 -y
@@ -149,27 +151,28 @@ sudo apt install plymouth-x11 -y
 ----------------------------------------------------------------------------------------------------------------------------------
 Desativar a tela arco-íris para colocar a logo desejada
 
-```python
+```bash
 sudo nano /boot/firmware/config.txt
 ```
 dentro desse arquivo txt procurar(ou adicione se não existir)
-```python
+
+```bash
 [all]
 disable_splash=1
 ```
 E para remover a logo da raspberry
 
-```python
+```bash
 sudo nano /boot/firmware/cmdline.txt
 ```
 e na mesma linha colocar 
 
-´´´python
+´´´bash
 logo.nologo
 ```
 ---------------------------------------------------------------------------------------------------------------------------------------------------Agora vamos criar o que vai controlar tudo que aparece na tela do boot
 
-```python
+```bash
 sudo nano /usr/share/plymouth/themes/senai/senai.script
 ```
 <small>[Caminho para o senai.script](./scripts/senai.script)</small>
@@ -178,7 +181,7 @@ sudo nano /usr/share/plymouth/themes/senai/senai.script
 Configuração principal do tema do Plymouth. Ele diz ao sistema como carregar o tema, qual módulo usar e onde esta o script principal
 
 
-```python
+```bash
 nano /usr/share/plymouth/themes/senai/senai.plymouth
 ```
 <small>[Caminho para o senai.plymounth](./scripts/senai.plymouth)</small>
