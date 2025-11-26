@@ -71,24 +71,32 @@ Ferramente útil para automações gráficas (opcional)
 
 📁 Criação da Estrutura de Pastas
 
-```python
-mkdir -p ~/scripts
-mkdir -p ~/.config/systemd/user
-mkdir -p ~/services
-```
-criar as pastas que armazenam os scripts e serviços do projeto
+Caminho para armazenar o script do start_monitor.sh
 
+```python
+cd /home/tv-senai/
+```
+Criar a pasta script dentro desse caminho
+
+```python
+mkdir scripts
+```
+Agora dentro da pasta script dar o seguinte comando e coloque o script principal que abre o Chromium em modo kiosk
+
+```python
+sudo nano start_monitor.sh
+(./scripts/start_monitor.sh)
+```
 ----------------------------------------------------------------------------------------------------------------------------------
-
-🚀 Movendo e Preparando os Arquivos
-
+Caminho para armazenar o script do kiosk.service, responsavel por iniciar o automaticamente o script start_monitor
 ```python
-cp scripts/start_monitor.sh ~/scripts/
-cp services/kiosk.service ~/.config/systemd/user/
-chmod +x ~/scripts/start_monitor.sh
+sudo -u tv-senai mkdir -p /home/tv-senai/.config/systemd/user
 ```
-copia os arquivos para os locais corretos e dá permissão ao script principal
-
+Próximo passo dentro do user criado acima
+```python
+sudo nano kiosk.service
+(./scripts/kiosk.service)
+```
 ----------------------------------------------------------------------------------------------------------------------------------
 
 🔄 Ativando o Serviço
@@ -128,10 +136,50 @@ exibe os logs em tempo real - otimo para debugs
 🎨🖥️ Personalização da Tela de Boot (Logo)
 
 O Raspberry Pi utiliza o Plymouth para exibir uma imagem durante o processo de inicialização.
-Essa imagem fica localizada em:
+
+Principais comandos para configurar o Plymouth
+
 ```python
-/usr/share/plymouth/themes/pix/splash.png
+sudo apt install plymouth -y
+sudo apt install plymouth-themes -y
+sudo apt install plymouth-x11 -y
 ```
+----------------------------------------------------------------------------------------------------------------------------------
+Desativar a tela arco-íris para colocar a logo desejada
+
+```python
+sudo nano /boot/firmware/config.txt
+```
+dentro desse arquivo txt procurar(ou adicione se não existir)
+```python
+[all]
+disable_splash=1
+```
+E para remover a logo da raspberry
+
+```python
+sudo nano /boot/firmware/cmdline.txt
+```
+e na mesma linha colocar 
+
+´´´python
+logo.nologo
+```
+---------------------------------------------------------------------------------------------------------------------------------------------------Agora vamos criar o que vai controlar tudo que aparece na tela do boot
+
+```python
+sudo nano /usr/share/plymouth/themes/senai/senai.script
+(./scripts/senai.script)
+```
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Configuração principal do tema do Plymouth. Ele diz ao sistema como carregar o tema, qual módulo usar e onde esta o script principal
+
+
+```python
+nano /usr/share/plymouth/themes/senai/senai.plymouth
+(./scripts/senai.plymouth)
+```
+
 Para personalizar essa tela, o projeto substitui a imagem padrão do Raspberry PI por uma imagem personalizada (Ex:logo do SENAI)
 
 o funcionamento é simples:

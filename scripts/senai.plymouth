@@ -1,0 +1,9 @@
+[Plymouth Theme]
+Name=Senai Splash
+Description=Splash personalizado do Senai
+ModuleName=script
+
+[script]
+ImageDir=/usr/share/plymouth/themes/senai
+ScriptFile=/usr/share/plymouth/themes/senai/senai.script
+

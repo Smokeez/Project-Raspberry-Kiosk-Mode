@@ -1,18 +1,3 @@
-sudo nano /usr/share/plymouth/themes/senai/senai.plymouth
-
-[Plymouth Theme]
-Name=Senai Splash
-Description=Splash personalizado do Senai
-ModuleName=script
-
-[script]
-ImageDir=/usr/share/plymouth/themes/senai
-ScriptFile=/usr/share/plymouth/themes/senai/senai.script
-
-
-
-sudo nano /usr/share/plymouth/themes/senai/senai.script
-
 wallpaper_image = Image("splash.png");
 wallpaper_sprite = Sprite(wallpaper_image);
 wallpaper_sprite.SetZ(-100);
@@ -27,3 +12,7 @@ wallpaper_sprite.SetZ(-100);
 x = (Window.GetWidth()  - wallpaper_image.GetWidth())  / 2;
 y = (Window.GetHeight() - wallpaper_image.GetHeight()) / 2;
 wallpaper_sprite.SetPosition(x, y, 1.0);
+
+
+sudo plymouth-set-default-theme -R senai
+sudo update-initramfs -u

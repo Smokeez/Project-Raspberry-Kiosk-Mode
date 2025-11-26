@@ -1,4 +1,4 @@
-!/bin/bash
+#!/bin/bash
 # start_monitor.sh — Chromium Kiosk (single instance, open as app)
 
 USER_HOME="/home/tv-senai"
