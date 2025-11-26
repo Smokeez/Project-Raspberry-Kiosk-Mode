@@ -199,7 +199,9 @@ O Plymouth usa uma imagem chamada splash.png como tela de boot.
 Para trocar a logo basta:
 
 1️⃣ Fazer backup da original
+
 2️⃣ Copiar a nova logo
+
 3️⃣ Manter o nome splash.png na pasta do tema
 
 Assim, ao ligar o Raspberry, sua logo personalizada (ex.: SENAI) aparece automaticamente.
