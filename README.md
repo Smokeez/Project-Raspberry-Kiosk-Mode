@@ -90,9 +90,10 @@ Comando para dar permissão de execução para o arquivo start_monitor.sh
 ```bash
 sudo chmod +x /home/tv-senai/scripts/start_monitor.sh
 ```
-
+Caso o arquivo seja criado utilizando o sudo, dar permissão de dono do arquivo
 ```bash
-
+sudo chown tv-senai:tv-senai /home/tv-senai/scripts/start_monitor.sh
+```
 <small>[Caminho para o start_monitor.sh](./scripts/start_monitor.sh)</small>
 
 ----------------------------------------------------------------------------------------------------------------------------------
