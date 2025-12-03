@@ -6,27 +6,27 @@ O projeto utiliza um Raspberry Pi 5 como base para transformar qualquer TV ou mo
 
 Assim que o Raspberry Pi é ligado, ele executa uma sequência totalmente automatizada:
 
-1️⃣ Autologin → o sistema entra automaticamente em um usuário dedicado (tv-senai).
+1- Autologin → o sistema entra automaticamente em um usuário dedicado (tv-senai).
 
-2️⃣ Ambiente gráfico → o desktop é carregado.
+2️- Ambiente gráfico → o desktop é carregado.
 
-3️⃣ Serviço systemd (modo usuário) → inicia o script responsável por abrir o navegador.
+3️- Serviço systemd (modo usuário) → inicia o script responsável por abrir o navegador.
 
-4️⃣ Chromium Browser é iniciado com as seguintes configurações:
+4️- Chromium Browser é iniciado com as seguintes configurações:
 
 🧩 Modo Kiosk: tela cheia, sem bordas, abas ou menus.
 
-🌐 URL definida no script principal.
+ URL definida no script principal.
 
-🔒 Ignora erros de certificado HTTPS locais (para URLs internas).
+ Ignora erros de certificado HTTPS locais (para URLs internas).
 
-⚙️ Sem pop-ups, sincronização ou barras de notificação.
+ Sem pop-ups, sincronização ou barras de notificação.
 
-5️⃣ Navegador permanece ativo, funcionando como um painel digital.
+5️- Navegador permanece ativo, funcionando como um painel digital.
 
-6️⃣ Watchdog automático (via systemd): caso o Chromium seja fechado, travado ou encerrado, o sistema o reinicia imediatamente.
+6️- Watchdog automático (via systemd): caso o Chromium seja fechado, travado ou encerrado, o sistema o reinicia imediatamente.
 
-📊 O resultado é um sistema de exibição totalmente automático, resiliente e sem necessidade de intervenção humana, ideal para TVs corporativas, dashboards de monitoramento e painéis informativos.
+ O resultado é um sistema de exibição totalmente automático, resiliente e sem necessidade de intervenção humana, ideal para TVs corporativas, dashboards de monitoramento e painéis informativos.
 
 ----------------------------------------------------------------------------------------------------------------------------------
 
@@ -34,7 +34,7 @@ Assim que o Raspberry Pi é ligado, ele executa uma sequência totalmente automa
 
 Este projeto foi criado para resolver a necessidade de manter TVs exibindo informações 24 horas por dia, de forma automática e confiável.
 
-🎬 Objetivo principal:
+ Objetivo principal:
 
 ⚡ Ligar a energia → a TV inicia → o Raspberry abre o site sozinho.
 🧱 Nenhuma interação humana é necessária — apenas plug & play.
@@ -45,7 +45,7 @@ Este projeto foi criado para resolver a necessidade de manter TVs exibindo infor
 
 Abaixo estão os principais comandos usados para configurar o Raspberry PI 5
 
-🔧 Instalação e Preparação do Sistema
+ Instalação e Preparação do Sistema
 
 ```bash
 sudo apt update && sudo apt upgrade -y
@@ -84,8 +84,15 @@ mkdir scripts
 Agora dentro da pasta script dar o seguinte comando e coloque o script principal que abre o Chromium em modo kiosk
 
 ```bash
-sudo nano start_monitor.sh
+ nano start_monitor.sh
 ```
+Comando para dar permissão de execução para o arquivo start_monitor.sh
+```bash
+sudo chmod +x /home/tv-senai/scripts/start_monitor.sh
+```
+
+```bash
+
 <small>[Caminho para o start_monitor.sh](./scripts/start_monitor.sh)</small>
 
 ----------------------------------------------------------------------------------------------------------------------------------
@@ -193,15 +200,15 @@ nano /usr/share/plymouth/themes/senai/senai.plymouth
 <small>[Caminho para o senai.plymounth](./scripts/senai.plymouth)</small>
 
 
-🖼️ Como funciona a troca de logo?
+ Como funciona a troca de logo?
 
 O Plymouth usa uma imagem chamada splash.png como tela de boot.
 Para trocar a logo basta:
 
-1️⃣ Fazer backup da original
+1️- Fazer backup da original
 
-2️⃣ Copiar a nova logo
+2️- Copiar a nova logo
 
-3️⃣ Manter o nome splash.png na pasta do tema
+3- Manter o nome splash.png na pasta do tema
 
 Assim, ao ligar o Raspberry, sua logo personalizada (ex.: SENAI) aparece automaticamente.

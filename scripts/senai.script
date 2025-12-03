@@ -12,7 +12,3 @@ wallpaper_sprite.SetZ(-100);
 x = (Window.GetWidth()  - wallpaper_image.GetWidth())  / 2;
 y = (Window.GetHeight() - wallpaper_image.GetHeight()) / 2;
 wallpaper_sprite.SetPosition(x, y, 1.0);
-
-
-sudo plymouth-set-default-theme -R senai
-sudo update-initramfs -u
