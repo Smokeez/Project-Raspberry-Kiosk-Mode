@@ -119,17 +119,17 @@ systemctl --user daemon-reload
 Recarrega as definições do systemd (modo usuário)
 
 ```bash
-systemctl --user start kiosk.service
+systemctl --user enable kiosk.service
 ```
 Ativa o serviço para iniciar automaticamente com o usuário logado
 
 ```bash
-sytemctl --user start kiosk.service
+systemctl --user start kiosk.service
 ```
 Inicia o serviço manualmente (útil para testar)
 
 ----------------------------------------------------------------------------------------------------------------------------------
-
+S
 🧩 Monitoramento e Logs
 
 ```bash
